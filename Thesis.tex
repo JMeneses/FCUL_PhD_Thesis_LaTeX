@@ -1,0 +1,247 @@
+\documentclass[12pt]{report}
+\usepackage{newtxtext,newtxmath}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{makecell}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage{acro}
+\usepackage{rotating}
+\usepackage{tocbibind}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{anyfontsize}
+\usepackage{geometry}
+\DeclareSIUnit{\molar}{M}
+\DeclareAcronym{TE}{short=TE, long=Tissue Engineering,}
+\DeclareAcronym{BTE}{short=BTE, long=Bone Tissue Engineering,}
+\DeclareAcronym{PCL}{short=PCL,long=polycaprolactone,}
+\DeclareAcronym{PDMS}{short=PDMS,long=polydimethylsiloxane,}
+\DeclareAcronym{3D}{short=3D, long=three-dimensional,}
+\DeclareAcronym{ECM}{short=ECM, long=extracellular matrix,}
+\DeclareAcronym{VEGF}{short=VEGF, long=vascular endothelial growth factor,}
+\DeclareAcronym{FGF}{short=FGFs, long=fibroblast growth factors,}
+\DeclareAcronym{BMP}{short=BMPs, long=bone morphogenetic proteins,}
+\DeclareAcronym{HA}{short=HA, long=hydroxyapatite,}
+\DeclareAcronym{MSCs}{short=MSCs, long=mesenchymal stem cells,}
+\DeclareAcronym{pH}{short=pH, long=potential of hydrogen,}
+\DeclareAcronym{dO2}{short=dO\textsubscript{2}, long=dissoved oxygen,}
+\DeclareAcronym{dCO2}{short=dCO\textsubscript{2}, long=dissolved carbon dioxide,}
+\DeclareAcronym{CAD}{short=CAD, long=computer-aided-design,}
+\DeclareAcronym{mCT}{short=\textmu CT, long=microcomputed tomography,}
+\DeclareAcronym{WSS}{short=WSS, long=wall shear stress,}
+\DeclareAcronym{EF}{short=E-Field, long=electric field,}
+\DeclareAcronym{EFs}{short=E-Fields, long=electric fields,}
+\DeclareAcronym{CCoupled}{short=CCoupled, long=Capacitively Coupled,}
+\DeclareAcronym{DCoupled}{short=DCoupled, long=Direct Coupled,}
+\DeclareAcronym{ICoupled}{short=ICoupled, long=Inductive Coupled,}
+\DeclareAcronym{AC}{short=AC, long=alternate current,}
+\DeclareAcronym{DC}{short=DC, long=direct current,}
+\DeclareAcronym{RUNX2}{short=RUNX-2, long=runt-related transcription factor 2,}
+\DeclareAcronym{ALP}{short=ALP, long=alkaline phosphatase,}
+\DeclareAcronym{COL1}{short=COL-I, long=collagen-type I-alpha 1,}
+\DeclareAcronym{SPP1}{short=SPP1, long=secreted phosphoprotein 1,}
+\DeclareAcronym{FEM}{short=FEM, long=finite element method,}
+\DeclareAcronym{FVM}{short=FVM, long=finite volume method,}
+\DeclareAcronym{CFD}{short=CFD, long=computational fluid dynamics,}
+\DeclareAcronym{DNA}{short=DNA, long=deoxyribonucleic acid,}
+\DeclareAcronym{TGF}{short=TGFs, long=transforming growth factors,}
+\DeclareAcronym{STEP}{short=STEP, long=file format from ISO 10303 can represent 3D objects,}
+\DeclareAcronym{ROI}{short=ROI, long=region-of-interest,}
+\DeclareAcronym{PETG}{short=PETG, long=polyethylene terephthalate,}
+\DeclareAcronym{GMRES}{short=GMRES, long=generalized minimal residual method,}
+\DeclareAcronym{BiCGStab}{short=BiCGStab, long=biconjugate gradient stabilized method,}
+\DeclareAcronym{MUMPS}{short=MUMPS, long=multifrontal massively parallel sparse direct solver,}
+\DeclareAcronym{FDM}{short=FDM, long=fuse deposition modelling 3D printing technique,}
+\DeclareAcronym{PLLA}{short=PLLA, long=poly-l-lactic acid,}
+\DeclareAcronym{C8}{short=C8, long=Facilan™ C8 is a propietary formulation additive manufacturing filament,}
+\DeclareAcronym{DMEM}{short=DMEM, long=Dulbecco's Modified Eagle Medium,}
+\DeclareAcronym{FBS}{short=FBS, long=fetal bovine serum,}
+\DeclareAcronym{PBS}{short=PBS, long=phosphate-buffered saline solution,}
+\DeclareAcronym{BSA}{short=BSA, long=bovine serum albumin,}
+\DeclareAcronym{RNA}{short=RNA, long=ribonucleic acid,}
+\DeclareAcronym{RT-qPCR}{short=RT-qPCR, long=real-time polymerase chain reaction,}
+\DeclareAcronym{TMP}{short=TMP, long=transmembrane potential,}
+\begin{document}
+\pagenumbering{roman}
+
+% Prevent Hyphenation
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+% Capa
+\begin{titlepage}
+\centering
+{\fontsize{12}{14}\selectfont UNIVERSIDADE DE LISBOA\\}
+{\fontsize{12}{14}\selectfont FACULDADE DE CIÊNCIAS\par}
+\vspace{1\baselineskip}
+\includegraphics[width=5cm]{./figures/FCULogoB.png}\par
+\vspace{1\baselineskip}
+{\fontsize{12}{14} \selectfont \textbf{Numerical Modelling of Mechanical and Electromagnetic Stimulation in Bioreactors and Scaffolds for Tissue Engineering}\par}
+\vspace{1\baselineskip}
+{\fontsize{12}{14}\selectfont \textit{''Documento Definitivo''}\par}
+\vspace{2\baselineskip}
+{\fontsize{12}{14}\selectfont \textbf{Doutoramento em Engenharia Biomédica e Biofísica} \par}
+\vspace{2\baselineskip}
+{\fontsize{12}{14}\selectfont João Pedro Almeida Meneses\\}
+\vspace{1\baselineskip}
+{\fontsize{12}{14}\selectfont Tese orientada por:\\Prof. Dra. Paula Pascoal-Faria\\Prof. Dr. Nuno Alves\\ Dra. Sofia Rita Fernandes\par}
+\vfill
+{\fontsize{12}{14}\selectfont Documento especialmente elaborado para a obtenção do grau de doutor\\}
+\vspace{1\baselineskip}
+{\fontsize{14}{17}\selectfont 2023}
+\end{titlepage}
+
+\shipout\null
+
+% Contracapa Provisória
+%\begin{titlepage}
+%\centering
+%{\fontsize{12}{14}\selectfont UNIVERSIDADE DE LISBOA\\}
+%{\fontsize{12}{14}\selectfont FACULDADE DE CIÊNCIAS\par}
+%\vspace{1\baselineskip}
+%\includegraphics[width=5cm]{./figures/FCULogoB.png}\par
+%\vspace{1\baselineskip}
+%{\fontsize{12}{14} \selectfont \textbf{Numerical Modelling of Mechanical and Electromagnetic Stimulation in Bioreactors and Scaffolds for Tissue Engineering}\par}
+%\vspace{2\baselineskip}
+%{\fontsize{12}{14}\selectfont \textbf{Doutoramento em Engenharia Biomédica e Biofísica} \par}
+%\vspace{2\baselineskip}
+%{\fontsize{12}{14}\selectfont João Pedro Almeida Meneses\\}
+%\vspace{1\baselineskip}
+%{\fontsize{12}{14}\selectfont Tese orientada por:\\Prof. Dra. Paula Pascoal-Faria\\Prof. Dr. Nuno Alves\\ Dra. Sofia Rita Fernandes\par}
+%\vspace{1\baselineskip}
+%{\fontsize{11}{12}\selectfont Esta tese foi financiada pela Fundação Portuguesa para a Ciência e Tecnologia (FCT) por meios de uma bolsa de doutoramento com a referência 2021.05145.BD, e através dos projectos Stimuli2BioScaffold (PTDC/EMESIS/32554/2017) e OptiBioScaffold (PTDC/EMESIS/4446/2020).\par}
+%\vfill
+%{\fontsize{12}{14}\selectfont Documento especialmente elaborado para a obtenção do grau de doutor\\}
+%\vspace{1\baselineskip}
+%{\fontsize{14}{17}\selectfont 2023}
+%\end{titlepage}
+
+% Contracapa Definitiva
+\newgeometry{left=3cm, right=3cm, top=1cm, bottom=1cm}
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+{\fontsize{12}{14}\selectfont UNIVERSIDADE DE LISBOA\\}
+{\fontsize{12}{14}\selectfont FACULDADE DE CIÊNCIAS\par}
+\vspace{1em}
+\includegraphics[width=5cm]{./figures/FCULogoB.png}\par
+\vspace{1em}
+{\fontsize{12}{12} \selectfont \textbf{Numerical Modelling of Mechanical and Electromagnetic Stimulation in Bioreactors and Scaffolds for Tissue Engineering}\par}
+\vspace{1.5em}
+{\fontsize{12}{12}\selectfont \textbf{Doutoramento em Engenharia Biomédica e Biofísica} \par}
+\vspace{1.5em}
+{\fontsize{12}{12}\selectfont João Pedro Almeida Meneses\\}
+\vspace{1em}
+{\fontsize{12}{13}\selectfont Tese orientada por:\\Prof. Dra. Paula Pascoal-Faria\\Prof. Dr. Nuno Alves\\ Dra. Sofia Rita Fernandes\par}
+\vspace{1em}
+{\fontsize{10}{10}\selectfont
+\raggedright
+Júri: \\
+Presidente:
+\begin{itemize}
+\setlength{\itemsep}{1pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+\item José Manuel de Nunes Vicente e Rebordão, Investigador Coordenador e Presidente do Departamento de Física da Faculdade de Ciências da Universidade de Lisboa.
+\end{itemize}
+\raggedright
+Vogais:
+\begin{itemize}
+\setlength{\itemsep}{1pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}
+\item Doutor Miguel Castilho, Assistant Professor, Biomedical Engineering Institute for Complex Molecular Systems do Department of Biomedical Engineering da Eindhoven University of Technology;
+\item Doutor Marco Domingos, Senior Lecturer, Faculty of Science and Engineering da University of Manchester;
+\item Doutora Paula Cristina Rodrigues Pascoal Faria, Professora Adjunta, Escola Superior de Tecnologia e Gestão do Instituto Politécnico de Leiria (orientadora);
+\item Doutora Paola Sanjuan Alberte, Investigadora, Instituto de Bioengenharia e Biociências do Instituto Superior Técnico da Universidade de Lisboa;
+\item Doutor Nuno Miguel Azevedo Machado de Araújo, Professor Associado com Agregação Faculdade de Ciências da Universidade de Lisboa.
+\end{itemize}}
+{\fontsize{12}{14}\selectfont Documento especialmente elaborado para a obtenção do grau de doutor\\}
+\vspace{1em}
+{\fontsize{10}{11}\selectfont Esta tese foi financiada pela Fundação Portuguesa para a Ciência e Tecnologia (FCT) por meios de uma bolsa de doutoramento com a referência 2021.05145.BD, e através dos projectos Stimuli2BioScaffold (PTDC/EMESIS/32554/2017) e OptiBioScaffold (PTDC/EMESIS/4446/2020).\par}
+\vspace{2em}
+{\fontsize{14}{17}\selectfont 2023}
+\end{titlepage}
+\restoregeometry
+
+\shipout\null
+
+\section*{Acknowledgements}
+\phantomsection
+\addcontentsline{toc}{section}{Acknowledgements}
+This document represents the end of a journey. The walking path was laborious and challenging but worth the walk. It pushed me from long learning curves to the satisfaction of making small scientific contributions that may one day help push the boundaries of knowledge one step closer to new discoveries. Tissue engineering remains a massive challenge with considerable variability, uncertainties, and unknowns. However, tackling and making sense of its chaotic nature will profoundly affect personalized healthcare and relieve the human burden of multiple organ malfunctions. For the possibility of enrolling and participating in this journey, I am thankful to my host institution supervisors, Paula Pascoal-Faria and Nuno Alves, for all the support given and for allowing me the liberty to think and make my own decisions, picking the scientific path exposed in this manuscript. From IBEB, I am also thankful to my supervisor, Sofia R. Fernandes, for all the help, including the countless corrections and generous patience when analyzing my outputs, even knowing they were draft versions of ideas full of doubts and imprecisions. I am incredibly thankful for being supervised during the first two years of this Ph.D. work by Professor Pedro Cavaleiro Miranda. Its inspiring scientific integrity, attention to detail, and availability to deeply think, discuss, and passionately explain every topic were remarkable. I learned a lot from all our interactions and benefitted significantly from Professor Pedro's guidance. I am grateful for all the research support provided by Professor Frederico Ferreira and João C. Silva, extended to all IBB personnel and facilities, for gracefully conducting all required biological experiments that complemented the generated numerical model hypothesis. Naturally, I am thankful to the two institutions that accepted to receive me, the host CDRSP and the Faculty of Sciences through IBEB, for providing all the conditions, material, and human, which include all the institution's staff and services that created a supportive environment for this work. Lastly, my thanks go to the stronghold that allowed me to keep moving forward, surpassing obstacles, and celebrating small achievements. This stronghold is my supportive nucleus composed of my family, girlfriend, and friends, whom I am privileged to have in my life. 
+
+
+\newpage
+\section*{Abstract}
+\phantomsection
+\addcontentsline{toc}{section}{Abstract}
+In \ac{TE}, bioreactors and scaffolds are paramount to promote and sustain adequate \textit{in vitro} conditions for cell differentiation, proliferation, growth, and support. In addition to nutrient transport and waste removal, diverse bioreactor designs have been proposed to provide mechanical or electromagnetic stimuli to cells to enhance physical environmental conditions, significantly upregulating critical cellular responses. However, the biophysical mechanisms by which cells sense, interpret, and transform these stimuli into actions remain unclear.
+
+This thesis aimed at developing multimodal stimulation bioreactor and scaffold designs along with their digital models (an accurate virtual numerical representation constructed to reflect the physical object) to predict the biophysical effects and define protocol standards for the delivery of stimuli to bone cell targets. This combined approach contributes to a better understanding of the processes by which cells react to external stimuli, allowing the prediction of the exact stimulation conditions generated in the cellular surroundings for a specific electromagnetic input wave or culture medium fluid flow.
+
+Results demonstrate considerable variability in stimulation ranges applied in previous experiments, concluding that most outputs reported are overestimated in their original works compared to their respective digital model prediction. New multimodal bioreactor design concepts were developed for \ac{3D} printing fabrication (aiming for high reproducibility) and experimentally validated with \textit{in vitro} cell cultures. Its digital models and fabrication blueprints were made available in online open-source platforms, contributing to the standardization of stimulation protocols and easing their replication among \ac{TE} researchers. The developed approach is expected to lead to more innovative bioreactors and scaffold designs, allowing the use of their correspondent digital models to tune experimental conditions into more targeted approaches, which in turn will drive progress and discovery, contributing to overcoming some of the limitations in conventional stimulation systems for \textit{in vitro} cell cultures. \newline
+
+\textit{\textbf{Keywords:} Multimodal Bioreactor Design; Mechanical and Electromagnetic Stimulation; Numerical Modelling; Finite Element Analysis; Tissue Engineering;}
+
+
+
+
+\newpage
+\section*{Resumo}
+\phantomsection
+\addcontentsline{toc}{section}{Resumo}
+A engenharia de tecidos é uma área científica interdisciplinar focada no desenvolvimento de substitutos biológicos capazes de regenerar tecidos doentes ou danificados em humanos. Esta área assenta numa estratégia típica de recolha de células indiferenciadas (também designadas por células estaminais) do próprio paciente ou de um dador, em que o seu crescimento e proliferação são estimulados até atingirem um número suficientemente grande que garanta a obtenção de um volume de tecido capaz de corrigir a lesão original. Neste processo, essas células são colocadas em estruturas de suporte, comumente fabricadas a partir de materiais biocompatíveis reabsorvíveis, normalmente designadas por \textit{scaffolds}. Os \textit{scaffolds} podem, por si só, conduzir a processos mais ou menos favoráveis de adesão, proliferação e crescimento celular, através das suas propriedades, como por exemplo, geometria, porosidade, dureza e inclusão de macromoléculas ou outros factores, sendo esta uma área ativa de investigação em engenharia de tecidos. Por sua vez, após o número de células viável ser atingido, o que normalmente ocorre após processos de confluência celular em várias passagens (culturas), este conjunto composto pela estrutura de suporte utilizada e pelas células estaminais que aderiram à estrutura é colocado em unidades de cultura celular dinâmicas, designadas por biorreactores, que são capazes de providenciar o ambiente necessário ao seu desenvolvimento e evolução (nutrientes, temperatura, mistura gasosa, etc.). Tipicamente, somam-se promotores físico-químicos à cultura que conduzem a uma maturação e consolidação num tecido capaz de ser reimplantado no defeito ou lesão, de modo a permitir o subsequente processo de regeneração \textit{in vivo}.
+
+Em engenharia de tecidos, biorreactores e \textit{scaffolds} são fundamentais para promover e manter as culturas celulares \textit{in vitro} com condições adequadas para a diferenciação, proliferação, crescimento e homeostase celular. O biorreactor é neste processo uma parte crítica na realização das funções de transporte de nutrientes e de remoção de resíduos provenientes do metabolismo celular. Ao longo do tempo, diversos biorreactores foram desenvolvidos e aplicados, visando diferentes geometrias e tecnologias de base para conseguir fornecer uma panóplia de estímulos mecânicos, electromagnéticos ou químicos, que de forma acoplada ou isolada recriassem as condições ambientais favoráveis a uma determinada resposta celular. Estes estímulos muitas vezes são biomiméticos das condições desse tecido \textit{in vivo}. Indo de encontro ao âmbito da engenharia de tecidos, a resposta celular a estímulos mais procurada é usualmente a maturação de um determinado conjunto de células indiferenciadas num tecido funcional, capaz de ser reimplantando \textit{in vivo} para corrigir uma lesão ou substituir / melhorar a função de um tecido ou órgão. O conjunto de evidência científica disponível mostra que a aplicação de alguns estímulos de forma isolada ou combinada permitem regular significativamente respostas celulares, acções que, aplicadas de forma controlada, podem traduzir-se numa ferramenta com grande potencial para guiar a regeneração celular. No entanto, convém salientar que os mecanismos biofísicos e bioquímicos que são desencadeados por estes estímulos e pelos quais as células os percebem, interpretam e transformam em acções concretas, permanecem desconhecidos na sua totalidade.
+
+A pesquisa realizada no âmbito desta tese doutoral visou desenvolver sistemas de biorreactores e \textit{scaffolds} com a capacidade de realizar uma estimulação multimodal, isto é, com a capacidade inovadora de estimulação mecânica e eléctrica na mesma cultura celular. Para além disto, o sistema desenvolvido vai incluir o seu modelo digital (uma réplica virtual precisa, construída para reflectir o objecto físico e o seu funcionamento). Este modelo numérico vai permitir prever com exactidão os efeitos biofísicos e as condições geradas no ambiente celular, aquando da entrega de uma onda electromagnética ou de um determinado fluxo de meio de cultura. Este conhecimento minucioso e de difícil acesso por via experimental permite definir protocolos optimizados para a entrega de estímulos, com a capacidade de melhorar uma determinada resposta celular, ou até permitir criar condições experimentais para uma melhor compreensão dos processos pelos quais as células reagem a estímulos externos. Também no âmbito desta tese doutoral, foram construídos modelos digitais de sistemas de estimulação já descritos na literatura e aplicados em contextos de engenharia de tecidos. Estes modelos numéricos foram utilizados para compreender melhor o impacto de cada parâmetro biofísico da estimulação, descrevendo a tecnologia de estimulação nas suas características principais por forma a estabelecer uma comparação entre o valor reportado e o valor previsto pelo seu respectivo modelo, reforçando a confiança e validando os próprios modelos numéricos.
+
+Os resultados obtidos nos diferentes trabalhos desenvolvidos no âmbito deste doutoramento evidenciam uma grande variabilidade nas gamas de estimulação aplicadas em engenharia de tecidos, nomeadamente, em estudos de regeneração do tecido ósseo. No que diz respeito à estimulação eléctrica por via de sistemas de acoplamento directo e de acoplamento capacitivo, foram registadas várias sobrestimações de magnitudes de campo eléctrico aplicado, onde os modelos numéricos desenvolvidos no âmbito deste doutoramento e também por outros autores defendem que os valores de campo eléctrico commummente aplicados em estudos experimentiais são reportados como sendo mais elevados, enquanto que, na prática, apenas campos eléctricos muito mais baixos ou até residuais foram efectivamente aplicados, carecendo os resultados biológicos obtidos nesses artigos de serem revisitados à luz desta correcção. Também recorrendo a modelos numéricos, foi estudado o impacto da presença da estrutura de um \textit{scaffold} na região de cultura celular, onde foram previstas as alterações provocadas pela sua presença no campo eléctrico aplicado por um sistema de acoplamento capacitivo. Este estudo demonstrou a importância da diferença de condutividade eléctrica entre o meio de cultura e o material do \textit{scaffold}, como determinante para que a presença de uma determinada geometria faça emergir padrões locais de estimulação com zonas de maior e menor campo eléctrico a coabitarem regiões próximas na cultura celular. De notar que este efeito constitui uma fonte de variabilidade experimental usualmente ignorada, conduzindo a culturas celulares potencialmente heterogéneas. Como conclusão dos trabalhos, foi desenvolvida uma metodologia de criação de biorreactores, onde as decisões de design estão sobretudo assentes nas previsões do seu modelo digital. Esta abordagem de design culminou na fabricação do biorreactor através de uma técnica de impressão 3D (\textit{fuse deposition modelling}), e na validação do modelo digital através de medições experimentais, onde o valor efectivamente medido teve uma correspondência muito próxima ao valor previsto para a mesma propriedade física em causa. A esta metodologia dual, de onde se obtém ao mesmo tempo um biorreactor físico e o seu correspondente modelo digital a partir de um design, deu-se o nome de \textit{JANUS}, inspirado no nome do Deus da dualidade na mitologia romana. O primeiro biorreactor resultante da aplicação desta metodologia foi validado em condições experimentais \textit{in vitro} com testes funcionais aos seus sistemas e testes celulares que originaram culturas viáveis. Adicionalmente, este biorreactor e o seu modelo digital, assim como todas as instruções de fabricação, código desenvolvido e esquemas de hardware, foram disponibilizados em repositórios online de acesso público e aberto, contribuindo assim para a padronização e replicabilidade dos protocolos de estimulação aqui propostos por parte de outros investigadores. Toda a abordagem aqui desenvolvida pode ser aplicada nos vários subdomínios da engenharia de tecidos para além do tecido ósseo para onde foi direccionada esta prova de conceito. Ambiciona-se que esta metodologia conduza a biorreactores e \textit{scaffolds} inovadores que, com o auxílio dos seus modelos digitais, permitam executar ajustes às condições experimentais para abordagens mais direccionadas, impulsionando o progresso e a consolidação do conhecimento dos mecanismos celulares desencadeados pelos processos de estimulação. Esta medologia pretende também conduzir a uma sustentada optimização geral das culturas \textit{in vitro}, eliminando limitações dos sistemas de estimulação e aumentando desta forma a sua aplicação nos vários ramos da engenharia de tecidos. A estratégia mencionada pode ainda ser utilizada para reduzir os custos associados às cultura celulares, através da diminuição do número de testes e da optimização do material utilizado. \newline
+
+
+
+
+\textit{\textbf{Palavras-chave:} Design de Biorreactor Multimodal; Estimulação Mecânica e Electromagnética; Modelos Numéricos; Análise de Elementos Finitos; Engenharia de Tecidos.}
+
+
+
+% Lista de Conteúdos
+\tableofcontents
+
+% Lista de Figuras
+\listoffigures
+
+% Lista de Tabelas
+\listoftables
+
+% Lista de Acrónimos
+\printacronyms
+\phantomsection
+\addcontentsline{toc}{section}{Acronyms}
+
+% Capítulos (incluir)
+\cleardoublepage
+\pagenumbering{arabic}
+\include{./Chapters/C1/intro.tex}
+\include{./Chapters/C2/art.tex}
+\include{./Chapters/C3/mechanic.tex}
+\include{./Chapters/C4/faradaic.tex}
+\include{./Chapters/C5/capacitive.tex}
+\include{./Chapters/C6/janus.tex}
+\include{./Chapters/C7/globaldiscussion.tex}
+\include{./Chapters/C8/curriculum.tex}
+
+% Referências
+\newpage
+\bibliography{library_global} 
+\bibliographystyle{unsrt}
+
+\end{document}
